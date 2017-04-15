@@ -14,7 +14,7 @@ const int DIRECTIONS[8][2] = {{-1,-1},{-1,0},{-1,-1},
 class Board{
     public:
         /*constructor*/
-        Board();
+        Board(int size = 8);
 
         /*count the number of pieces of the color*/
         int count_pieces(int color);

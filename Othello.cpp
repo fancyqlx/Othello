@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    Board B;
+    Board B(16);
     B.print_board();
     return 0;
 }

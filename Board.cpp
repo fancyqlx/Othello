@@ -2,10 +2,11 @@
 #include <utility>
 #include <string>
 #include <vector>
+#include <iomanip>
 #include "Board.h"
 using namespace std;
 
-Board::Board():bsize(8),turns(1){
+Board::Board(int size):bsize(size),turns(1){
     board = new int* [bsize];
     for(int i=0;i<bsize;++i) board[i] = new int[bsize];
     for(int i=0;i<bsize;++i)
@@ -27,7 +28,7 @@ int Board::count_pieces(int color){
 }
 
 void Board::print_board(){
-    string s = "  ";
+    string s = "   ";
     for(int i=0;i<bsize;++i){
         s += i + '0';
         s += " ";
@@ -35,7 +36,7 @@ void Board::print_board(){
     cout<<s<<"White:"<<count_pieces(0)
     <<' '<<"Black:"<<count_pieces(1)<<endl;
     for(int i=0;i<bsize;++i){
-        cout<<i<<' ';
+        cout<<left<<setw(3)<<i;
         for(int j=0;j<bsize;++j){
             switch(board[i][j]){
                 case -1:
