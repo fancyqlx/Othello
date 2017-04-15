@@ -1,4 +1,4 @@
-Obj = Board.o
+Obj = Othello.o Board.o
 
 Othello: $(Obj)
 	g++ $(Obj) -o Othello

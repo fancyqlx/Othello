@@ -1,5 +1,5 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef _BOARD_H_
+#define _BOARD_H_
 
 #include <iostream>
 #include <utility>
@@ -7,7 +7,7 @@
 using namespace std;
 
 /*eight directions*/
-int DIRECTIONS[8][2] = {{-1,-1},{-1,0},{-1,-1},
+const int DIRECTIONS[8][2] = {{-1,-1},{-1,0},{-1,-1},
                         {0,-1},{0,1},
                         {-1,1},{1,0},{1,1}};
 

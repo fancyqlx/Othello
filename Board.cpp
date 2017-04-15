@@ -28,8 +28,10 @@ int Board::count_pieces(int color){
 
 void Board::print_board(){
     string s = "  ";
-    for(int i=0;i<bsize;++i)
-        s += (i + '0') + ' ';
+    for(int i=0;i<bsize;++i){
+        s += i + '0';
+        s += " ";
+    }
     cout<<s<<"White:"<<count_pieces(0)
     <<' '<<"Black:"<<count_pieces(1)<<endl;
     for(int i=0;i<bsize;++i){
