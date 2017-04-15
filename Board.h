@@ -8,7 +8,7 @@ using namespace std;
 class Board{
     public:
         /*constructor*/
-        Board():turns(1){}
+        Board():bsize(8),turns(1){}
 
         /*count the number of pieces of the color*/
         int count_pieces(int color);
@@ -38,7 +38,7 @@ class Board{
         void make_filps(pair<int,int> square, int * dirs);
 
     private:
-        size_t size;
+        size_t bsize;
         int turns;
         int ** board;
 };
