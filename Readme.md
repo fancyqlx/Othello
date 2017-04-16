@@ -22,7 +22,7 @@ Othello is a game between two players on an 8x8 square grid
 and white (W), initially occupy the center positions as
 indicated below.
 
-     A B C D E F G H
+       A B C D E F G H
     1  . . . . . . . . 
     2  . . . . . . . . 
     3  . . . . . . . . 
