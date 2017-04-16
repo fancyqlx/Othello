@@ -1,13 +1,14 @@
+## Othello
 
-==========================================================
+### Usage:
 run Othello to play a game, and you can add some arguments:
 -HH : Human vs Human
 -AH : AI vs Human
 -AA : AI vs AI
 -size= : set the size of square grid, default is 8
 -help : print the help information of Othello
-===========================================================
 
+### What is Othello:
 How to play the Game of Othello, 
 an example of an 8x8 square grid: 
 
