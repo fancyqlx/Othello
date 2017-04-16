@@ -3,15 +3,15 @@
 ### Usage:
 run Othello to play a game, and you can add some arguments:
 
--HH : Human vs Human
+\-HH : Human vs Human
 
--AH : AI vs Human
+\-AH : AI vs Human
 
--AA : AI vs AI
+\-AA : AI vs AI
 
--size= : set the size of square grid, default is 8
+\-size= : set the size of square grid, default is 8
 
--help : print the help information of Othello
+\-help : print the help information of Othello
 
 ### What is Othello:
 How to play the Game of Othello, 
@@ -22,15 +22,15 @@ Othello is a game between two players on an 8x8 square grid
 and white (W), initially occupy the center positions as
 indicated below.
 
->   A B C D E F G H
->1  . . . . . . . . 
->2  . . . . . . . . 
->3  . . . . . . . . 
->4  . . . W B . . . 
->5  . . . B W . . . 
->6  . . . . . . . . 
->7  . . . . . . . . 
->8  . . . . . . . . 
+     A B C D E F G H
+    1  . . . . . . . . 
+    2  . . . . . . . . 
+    3  . . . . . . . . 
+    4  . . . W B . . . 
+    5  . . . B W . . . 
+    6  . . . . . . . . 
+    7  . . . . . . . . 
+    8  . . . . . . . . 
 
 Black moves first, and places a 'B' somewhere on an *empty* location
 (indicated by a '.'). There are constraints on where the B may be
@@ -42,15 +42,15 @@ the ws that are bracketed are flipped to B (i.e., from the opponent's
 color to the current player's color). So, placing a 'B' at (5,F)
 leads to the following board:
 
->   A B C D E F G H
->1  . . . . . . . . 
->2  . . . . . . . . 
->3  . . . . . . . . 
->4  . . . W B . . . 
->5  . . . B B B . . 
->6  . . . . . . . . 
->7  . . . . . . . . 
->8  . . . . . . . . 
+       A B C D E F G H
+    1  . . . . . . . . 
+    2  . . . . . . . . 
+    3  . . . . . . . . 
+    4  . . . W B . . . 
+    5  . . . B B B . . 
+    6  . . . . . . . . 
+    7  . . . . . . . . 
+    8  . . . . . . . . 
 
 White now moves. Any move must bracket at least one B piece,
 and after doing so, the Bs in the bracketed sequence are
@@ -58,15 +58,15 @@ switched to ws. For the board above, W could be placed on (6,D),
 (4,F), or (6,F) -- note that one can bracket pieces along a
 diagnoal. If W is placed on (6,F), the resulting board is:
 
->   A B C D E F G H
->1  . . . . . . . . 
->2  . . . . . . . . 
->3  . . . . . . . . 
->4  . . . W B . . . 
->5  . . . B W B . . 
->6  . . . . . W . . 
->7  . . . . . . . . 
->8  . . . . . . . . 
+       A B C D E F G H
+    1  . . . . . . . . 
+    2  . . . . . . . . 
+    3  . . . . . . . . 
+    4  . . . W B . . . 
+    5  . . . B W B . . 
+    6  . . . . . W . . 
+    7  . . . . . . . . 
+    8  . . . . . . . . 
 
 Play continues until neither player can move. Very often, this
 happens when all sqaures are filled, but both players may
