@@ -72,4 +72,4 @@ end, wins.
 If one player cannot move (because they cannot bracket an opposing
 sequence), but the other player can move, then the former player
 must pass until such time that they can move.
-===============================================================5
+===============================================================

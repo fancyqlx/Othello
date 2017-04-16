@@ -82,7 +82,11 @@ int main(int argc, char **argv){
             if(strcmp(argv[i],"-HH")==0) type = 0;
             else if(strcmp(argv[i],"-AH")==0) type = 1;
             else if(strcmp(argv[i],"-AA")==0) type = 2;
-            else if(strcmp(argv[i],"-help")==0) help();
+            else if(strcmp(argv[i],"-help")==0) {
+                help();
+                cout<<"Press any key to continue...";
+                getchar();
+            }
             else{
                 string s = "";
                 int j = 0;
