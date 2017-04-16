@@ -10,9 +10,9 @@
 #include "Board.h"
 using namespace std;
 
-/*print the help information from Readme*/
+/*print the help information from help.in*/
 void help(){
-    fstream fin("Readme",fstream::in);
+    fstream fin("help.in",fstream::in);
     if(fin){
         string line;
         while(getline(fin,line))
