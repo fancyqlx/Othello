@@ -1,9 +1,10 @@
-Obj = Othello.o Board.o
+Obj = Othello.o Board.o Player.o \
+ 	Human.o AI.o
 
 Othello: $(Obj)
 	g++ $(Obj) -o Othello
 
-$(Obj): Board.h
+$(Obj): Board.h 
 
 .PHONY: clean
 clean:

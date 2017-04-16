@@ -1,5 +1,5 @@
-#ifndef _BOARD_H_
-#define _BOARD_H_
+#ifndef BOARD_H
+#define BOARD_H
 
 #include <iostream>
 #include <utility>
@@ -10,6 +10,7 @@ using namespace std;
 const int DIRECTIONS[8][2] = {{-1,-1},{-1,0},{-1,-1},
                         {0,-1},{0,1},
                         {-1,1},{1,0},{1,1}};
+const char COLOR[2][6] = {"WHITE","BLACK"};
 
 class Board{
     public:
@@ -17,7 +18,13 @@ class Board{
         Board(int size = 8);
 
         /*count the number of pieces of the color*/
-        int count_pieces(int color);
+        int count_pieces(int);
+
+        /*set color, means set the current player*/
+        void set_color(int c);
+
+        /*set piece into c*/
+        void set_piece(pair<int,int> square, int c);
 
         /*print the current board*/
         void print_board();
@@ -43,9 +50,13 @@ class Board{
         started from square*/
         void make_filps(pair<int,int> square);
 
+        /*judge whether the game is over*/
+        int who_is_winner();
+
     private:
         size_t bsize;
-        int turns;
+        int color;
         int ** board;
+        int winner;
 };
 #endif

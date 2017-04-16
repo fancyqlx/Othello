@@ -6,7 +6,7 @@
 #include "Board.h"
 using namespace std;
 
-Board::Board(int size):bsize(size),turns(1){
+Board::Board(int size):bsize(size),color(1){
     board = new int* [bsize];
     for(int i=0;i<bsize;++i) board[i] = new int[bsize];
     for(int i=0;i<bsize;++i)
@@ -18,22 +18,30 @@ Board::Board(int size):bsize(size),turns(1){
     board[bsize/2-1][bsize/2] = board[bsize/2][bsize/2-1] = 1;
 }
 
-int Board::count_pieces(int color){
+int Board::count_pieces(int c){
     int nums = 0;
     for(int i=0;i<bsize;++i)
         for(int j=0;j<bsize;++j)
-            if(board[i][j] == color)
+            if(board[i][j] == c)
                 ++nums;
     return nums;
 }
 
+void Board::set_color(int c){
+    color = c;
+}
+
+void Board::set_piece(pair<int,int> square, int c){
+    int x = square.first, y = square.second;
+    board[x][y] = c;
+}
+
 void Board::print_board(){
-    string s = "   ";
+    cout<<setw(3)<<' ';
     for(int i=0;i<bsize;++i){
-        s += i + '0';
-        s += " ";
+        cout<<left<<setw(2)<<char('A'+i);
     }
-    cout<<s<<"White:"<<count_pieces(0)
+    cout<<"White:"<<count_pieces(0)
     <<' '<<"Black:"<<count_pieces(1)<<endl;
     for(int i=0;i<bsize;++i){
         cout<<left<<setw(3)<<i;
@@ -59,7 +67,7 @@ bool Board::valid_move(pair<int,int> square, int dir){
     int add_x = DIRECTIONS[dir][0], add_y = DIRECTIONS[dir][1];
     x += add_x;
     y += add_y;
-    int opt = 1 - turns;
+    int opt = 1 - color;
     bool flag = false;
     while(x>=0 && x<bsize && y>=0 && y<bsize && board[x][y] == opt){
         x += add_x;
@@ -89,7 +97,7 @@ void Board::filp(pair<int,int> square, int dir){
     int add_x = DIRECTIONS[dir][0], add_y = DIRECTIONS[dir][1];
     x += add_x;
     y += add_y;
-    int opt = 1 - turns;
+    int opt = 1 - color;
     if(valid_move(square,dir)){
         while(board[x][y] == opt){
             board[x][y] = 1 - opt;
@@ -102,4 +110,9 @@ void Board::filp(pair<int,int> square, int dir){
 void Board::make_filps(pair<int,int> square){
     for(int i=0;i<8;++i)
         filp(square,i);
+    set_piece(square,color);
+}
+
+int Board::who_is_winner(){
+    return count_pieces(1)>count_pieces(0);
 }
