@@ -31,6 +31,18 @@ void Board::set_color(int c){
     color = c;
 }
 
+int Board::get_color()const{
+    return color;
+}
+
+int ** Board::get_board()const{
+    return board;
+}
+
+int Board::get_size()const{
+    return bsize;
+}
+
 void Board::set_piece(pair<int,int> square, int c){
     int x = square.first, y = square.second;
     board[x][y] = c;
@@ -72,7 +84,7 @@ bool Board::valid_move(pair<int,int> square, int dir){
     while(x>=0 && x<bsize && y>=0 && y<bsize && board[x][y] == opt){
         x += add_x;
         y += add_y;
-        if(board[x][y] == 1-opt) flag = true;
+        if(x>=0 && x<bsize && y>=0 && y<bsize && board[x][y] == 1-opt) flag = true;
     }
     return flag;
 }
@@ -88,7 +100,7 @@ vector<pair<int,int> > Board::legal_squares(){
     vector<pair<int,int> > vec;
     for(int i=0;i<bsize;++i)
         for(int j=0;j<bsize;++j)
-            if(is_legal(make_pair(i,j))) vec.push_back(make_pair(i,j));
+            if(board[i][j] == -1 && is_legal(make_pair(i,j))) vec.push_back(make_pair(i,j));
     return vec;
 }
 

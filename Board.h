@@ -22,6 +22,13 @@ class Board{
 
         /*set color, means set the current player*/
         void set_color(int c);
+        int get_color()const;
+
+        /*get the board*/
+        int ** get_board()const;
+
+        /*get the size of board*/
+        int get_size()const;
 
         /*set piece into c*/
         void set_piece(pair<int,int> square, int c);
