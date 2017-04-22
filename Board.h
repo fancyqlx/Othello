@@ -17,6 +17,11 @@ class Board{
         /*constructor*/
         Board(int size = 8);
 
+        /*copy constructor*/
+        Board(const Board&);
+
+        ~Board();
+
         /*count the number of pieces of the color*/
         int count_pieces(int);
 

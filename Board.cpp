@@ -18,6 +18,24 @@ Board::Board(int size):bsize(size),color(1){
     board[bsize/2-1][bsize/2] = board[bsize/2][bsize/2-1] = 1;
 }
 
+Board::Board(const Board& B){
+    if(this != &B){
+        bsize = B.bsize;
+        color = B.color;
+        board = new int* [bsize];
+        for(int i=0;i<bsize;++i) board[i] = new int[bsize];
+        for(int i=0;i<bsize;++i){
+            for(int j=0;j<bsize;++j){
+                board[i][j] = B.board[i][j];
+            }
+        }
+    }
+}
+
+Board::~Board(){
+    for(int i=0;i<bsize;++i) delete [] board[i];
+}
+
 int Board::count_pieces(int c){
     int nums = 0;
     for(int i=0;i<bsize;++i)

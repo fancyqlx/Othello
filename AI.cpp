@@ -11,7 +11,6 @@ bool AI::move(Board & B){
     //cout<<"AI is moving..."<<endl;
     B.set_color(color);
     legal_vec = B.legal_squares();
-    Board b = B;
     if(legal_vec.size()){
         while(1)
         {
@@ -22,7 +21,7 @@ bool AI::move(Board & B){
             pair<int,int> square;
             for(vector<pair<int,int> >::iterator it=legal_vec.begin();it!=legal_vec.end();++it){
                 if(alpha<=beta){
-                    int score = alpha_beta(level-1,b,1-max,*it,alpha, beta);
+                    int score = alpha_beta(level-1,B,1-max,*it,alpha, beta);
                     if(score>alpha) alpha = score;
                     if(score>r_score){
                         r_score = score;
