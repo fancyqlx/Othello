@@ -52,7 +52,7 @@ void play_game(int type, int size){
     }
     cout<<"********GAME OVER!********"<<endl;
     cout<<COLOR[B.who_is_winner()]<<" is WINNER!"<<endl;
-    delete [] PLAYER;
+    for(int i=0;i<2;++i) delete PLAYER[i];
 }
 
 int main(int argc, char **argv){
