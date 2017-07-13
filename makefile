@@ -8,4 +8,4 @@ $(Obj): Board.h
 
 .PHONY: clean
 clean:
-	rm $(Obj) Othello
+	rm -f $(Obj) Othello
