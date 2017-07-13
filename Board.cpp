@@ -18,6 +18,24 @@ Board::Board(int size):bsize(size),color(1){
     board[bsize/2-1][bsize/2] = board[bsize/2][bsize/2-1] = 1;
 }
 
+Board::Board(const Board& B){
+    if(this != &B){
+        bsize = B.bsize;
+        color = B.color;
+        board = new int* [bsize];
+        for(int i=0;i<bsize;++i) board[i] = new int[bsize];
+        for(int i=0;i<bsize;++i){
+            for(int j=0;j<bsize;++j){
+                board[i][j] = B.board[i][j];
+            }
+        }
+    }
+}
+
+Board::~Board(){
+    for(int i=0;i<bsize;++i) delete [] board[i];
+}
+
 int Board::count_pieces(int c){
     int nums = 0;
     for(int i=0;i<bsize;++i)
@@ -29,6 +47,18 @@ int Board::count_pieces(int c){
 
 void Board::set_color(int c){
     color = c;
+}
+
+int Board::get_color()const{
+    return color;
+}
+
+int ** Board::get_board()const{
+    return board;
+}
+
+int Board::get_size()const{
+    return bsize;
 }
 
 void Board::set_piece(pair<int,int> square, int c){
@@ -72,7 +102,7 @@ bool Board::valid_move(pair<int,int> square, int dir){
     while(x>=0 && x<bsize && y>=0 && y<bsize && board[x][y] == opt){
         x += add_x;
         y += add_y;
-        if(board[x][y] == 1-opt) flag = true;
+        if(x>=0 && x<bsize && y>=0 && y<bsize && board[x][y] == 1-opt) flag = true;
     }
     return flag;
 }
@@ -88,7 +118,7 @@ vector<pair<int,int> > Board::legal_squares(){
     vector<pair<int,int> > vec;
     for(int i=0;i<bsize;++i)
         for(int j=0;j<bsize;++j)
-            if(is_legal(make_pair(i,j))) vec.push_back(make_pair(i,j));
+            if(board[i][j] == -1 && is_legal(make_pair(i,j))) vec.push_back(make_pair(i,j));
     return vec;
 }
 
